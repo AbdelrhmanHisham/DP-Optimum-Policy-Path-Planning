@@ -46,6 +46,7 @@ print(goal)
 
 Value_Matrix = [[99 for row in range(len(Map_World[0]))]for col in range(len(Map_World))]
 
+Optimal_Policy = [[' 'for j in range(len(Map_World[0]))]for i in range(len(Map_World))]
 
 print(Map_World[0])
 print(Map_World[1])
@@ -79,6 +80,7 @@ while state == "Construct" :
             if goal[0] == i and goal[1] == j:
                 if Value_Matrix[i][j] > 0:
                     Value_Matrix[i][j] = 0
+                    Optimal_Policy[i][j] = '*'
                     state = "Construct"
         
             elif Map_World[i][j] == 0 :
@@ -89,6 +91,7 @@ while state == "Construct" :
 
                         if value < Value_Matrix[i][j] :
                             Value_Matrix[i][j] = value
+                            Optimal_Policy[i][j] = movement_sign[a]
                             state = "Construct"
 
 
@@ -102,3 +105,11 @@ print(Value_Matrix[4])
 print(Value_Matrix[5])
 print("******************")
 
+print("******************")
+print(Optimal_Policy[0])
+print(Optimal_Policy[1])
+print(Optimal_Policy[2])
+print(Optimal_Policy[3])
+print(Optimal_Policy[4])
+print(Optimal_Policy[5])
+print("******************")
